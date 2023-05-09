@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "939917833265",
+    "project_id": "hibyechatapp",
+    "storage_bucket": "hibyechatapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939917833265:android:8f5aafb4b9ccc8c4321110",
+        "android_client_info": {
+          "package_name": "com.example.hibye_flutterchatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "939917833265-mnaa8ucca34oemrrd5aeesstcv502a2f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hibye_flutterchatapp",
+            "certificate_hash": "bea274d14446fe7fe0d28e5c6c4a256bab24c4bf"
+          }
+        },
+        {
+          "client_id": "939917833265-ktt226606p75fugs0o3ubtmh796shsh3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJu1ewwIfF3ZCcvHvxRuZ4wrlmwNSCF1U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "939917833265-ktt226606p75fugs0o3ubtmh796shsh3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
