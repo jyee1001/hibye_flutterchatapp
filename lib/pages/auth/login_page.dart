@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hibye_flutterchatapp/widgets/widgets.dart';
 
@@ -28,34 +29,74 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 10),
                   Image.asset("assets/HiByeLogo.jpg"),
                   TextFormField(
-                      decoration: textInputDecoration.copyWith(
-                          labelText: "Email",
-                          labelStyle:
-                              TextStyle(color: Colors.black.withOpacity(0.5)),
-                          prefixIcon: Icon(Icons.email, color: Colors.black)),
-                      onChanged: (val) {
-                        setState(() {
-                          email = val;
-                          //print(email);
-                        });
-                      }),
+                    decoration: textInputDecoration.copyWith(
+                        labelText: "Email",
+                        labelStyle:
+                            TextStyle(color: Colors.black.withOpacity(0.5)),
+                        prefixIcon: Icon(Icons.email, color: Colors.black)),
+                    onChanged: (val) {
+                      setState(() {
+                        email = val;
+                        //print(email);
+                      });
+                    },
+                    validator: (val) {
+                      return RegExp(
+                                  r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                              .hasMatch(val!)
+                          ? null
+                          : "Please enter a valid email";
+                    },
+                  ),
                   const SizedBox(height: 15),
                   TextFormField(
-                      obscureText: true,
-                      decoration: textInputDecoration.copyWith(
-                          labelText: "Password",
-                          labelStyle:
-                              TextStyle(color: Colors.black.withOpacity(0.5)),
-                          prefixIcon: Icon(Icons.lock, color: Colors.black)),
-                      onChanged: (val) {
-                        setState(() {
-                          password = val;
-                        });
-                      }),
+                    obscureText: true,
+                    decoration: textInputDecoration.copyWith(
+                        labelText: "Password",
+                        labelStyle:
+                            TextStyle(color: Colors.black.withOpacity(0.5)),
+                        prefixIcon: Icon(Icons.lock, color: Colors.black)),
+                    validator: (val) {
+                      if (val!.length < 6) {
+                        return "Password must be at least 6 characters";
+                      } else {
+                        return null;
+                      }
+                    },
+                    onChanged: (val) {
+                      setState(() {
+                        password = val;
+                      });
+                    },
+                  ),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                      onPressed: () {
+                        login();
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.grey),
+                      child: Text("Sign In")),
+                  SizedBox(height: 30),
+                  Text.rich(TextSpan(
+                      text: "Don't have an account? ",
+                      style: const TextStyle(color: Colors.black, fontSize: 14),
+                      children: <TextSpan>[
+                        TextSpan(
+                            text: "Register here",
+                            style: const TextStyle(
+                                color: Colors.black,
+                                decoration: TextDecoration.underline),
+                            recognizer: TapGestureRecognizer()..onTap = () {}),
+                      ])),
                 ],
               ),
             )),
       ),
     );
+  }
+
+  login() {
+    if (formKey.currentState!.validate()) {}
   }
 }
