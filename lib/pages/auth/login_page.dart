@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hibye_flutterchatapp/widgets/widgets.dart';
+import 'package:hibye_flutterchatapp/pages/auth/register_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -87,7 +88,10 @@ class _LoginPageState extends State<LoginPage> {
                             style: const TextStyle(
                                 color: Colors.black,
                                 decoration: TextDecoration.underline),
-                            recognizer: TapGestureRecognizer()..onTap = () {}),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                nextScreen(context, const RegisterPage());
+                              }),
                       ])),
                 ],
               ),
