@@ -142,6 +142,7 @@ class _RegisterPageState extends State<RegisterPage> {
           .then((value) {
         if (value == true) {
         } else {
+          showSnackbar(context, Colors.red, value);
           setState(() {
             _isLoading = false;
           });
