@@ -6,6 +6,21 @@ import '../helper/helper_function.dart';
 class AuthService {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 
+  //for login
+
+  Future loginUserWithEmailandPassword(String email, String password) async {
+    try {
+      User user = (await firebaseAuth.signInWithEmailAndPassword(
+              email: email, password: password))
+          .user!;
+      if (user != null) {
+        return true;
+      }
+    } on FirebaseAuthException catch (e) {
+      return e.message;
+    }
+  }
+
   Future registerUserWithEmailandPassword(
       String fullName, String email, String password) async {
     try {
@@ -13,7 +28,7 @@ class AuthService {
               email: email, password: password))
           .user!;
       if (user != null) {
-        await DatabaseService(uid: user.uid).updateUserData(fullName, email);
+        await DatabaseService(uid: user.uid).savingUserData(fullName, email);
         return true;
       }
     } on FirebaseAuthException catch (e) {
