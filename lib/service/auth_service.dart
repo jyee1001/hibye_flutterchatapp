@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hibye_flutterchatapp/service/database_service.dart';
 
+import '../helper/helper_function.dart';
+
 class AuthService {
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 
@@ -16,6 +18,17 @@ class AuthService {
       }
     } on FirebaseAuthException catch (e) {
       return e.message;
+    }
+  }
+
+  Future signOut() async {
+    try {
+      await HelperFunctions.saveUserLoggedInStatus(false);
+      await HelperFunctions.saveUserEmailSF("");
+      await HelperFunctions.saveUserNameSF("");
+      await firebaseAuth.signOut();
+    } catch (e) {
+      return null;
     }
   }
 }
