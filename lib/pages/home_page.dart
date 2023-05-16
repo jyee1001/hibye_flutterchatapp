@@ -6,6 +6,7 @@ import 'package:hibye_flutterchatapp/pages/search_page.dart';
 import '../helper/helper_function.dart';
 import '../service/auth_service.dart';
 import '../service/database_service.dart';
+import '../widgets/group_title.dart';
 import '../widgets/widgets.dart';
 import 'auth/login_page.dart';
 
@@ -83,103 +84,107 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       drawer: Drawer(
+          backgroundColor: Colors.white,
           child: ListView(
-        padding: const EdgeInsets.symmetric(vertical: 50),
-        children: <Widget>[
-          Icon(
-            Icons.account_circle,
-            size: 150,
-            color: Color.fromRGBO(51, 51, 51, 1),
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          Text(
-            userName,
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          const Divider(
-            height: 2,
-          ),
-          ListTile(
-            onTap: () {},
-            selectedColor: Color.fromRGBO(51, 51, 51, 1),
-            selected: true,
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-            leading: const Icon(Icons.group),
-            title: const Text(
-              "Groups",
-              style: TextStyle(color: Colors.black),
-            ),
-          ),
-          ListTile(
-            onTap: () {
-              nextScreenReplace(
-                  context,
-                  ProfilePage(
-                    userName: userName,
-                    email: email,
-                  ));
-            },
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-            leading: const Icon(Icons.group),
-            title: const Text(
-              "Profile",
-              style: TextStyle(color: Colors.black),
-            ),
-          ),
-          ListTile(
-            onTap: () async {
-              showDialog(
-                  barrierDismissible: false,
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      title: const Text("Logout"),
-                      content: const Text("Are you sure you want to logout?"),
-                      actions: [
-                        IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: const Icon(
-                            Icons.cancel,
-                            color: Colors.red,
-                          ),
-                        ),
-                        IconButton(
-                          onPressed: () async {
-                            await authService.signOut();
-                            Navigator.of(context).pushAndRemoveUntil(
-                                MaterialPageRoute(
-                                    builder: (context) => const LoginPage()),
-                                (route) => false);
-                          },
-                          icon: const Icon(
-                            Icons.done,
-                            color: Colors.green,
-                          ),
-                        ),
-                      ],
-                    );
-                  });
-            },
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-            leading: const Icon(Icons.exit_to_app),
-            title: const Text(
-              "Logout",
-              style: TextStyle(color: Colors.black),
-            ),
-          )
-        ],
-      )),
+            //padding: const EdgeInsets.symmetric(vertical: 10),
+            children: <Widget>[
+              Icon(
+                Icons.account_circle,
+                size: 100,
+                color: Color.fromRGBO(51, 51, 51, 1),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Text(
+                userName,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              const Divider(
+                height: 2,
+              ),
+              ListTile(
+                onTap: () {},
+                selectedColor: Color.fromRGBO(51, 51, 51, 1),
+                selected: true,
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                leading: const Icon(Icons.group, color: Colors.black),
+                title: const Text(
+                  "Groups",
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+              ListTile(
+                onTap: () {
+                  nextScreenReplace(
+                      context,
+                      ProfilePage(
+                        userName: userName,
+                        email: email,
+                      ));
+                },
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                leading: const Icon(Icons.group, color: Colors.black),
+                title: const Text(
+                  "Profile",
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+              ListTile(
+                onTap: () async {
+                  showDialog(
+                      barrierDismissible: false,
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: const Text("Logout"),
+                          content:
+                              const Text("Are you sure you want to logout?"),
+                          actions: [
+                            IconButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              icon: const Icon(
+                                Icons.cancel,
+                                color: Colors.red,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () async {
+                                await authService.signOut();
+                                Navigator.of(context).pushAndRemoveUntil(
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const LoginPage()),
+                                    (route) => false);
+                              },
+                              icon: const Icon(
+                                Icons.done,
+                                color: Colors.green,
+                              ),
+                            ),
+                          ],
+                        );
+                      });
+                },
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                leading: const Icon(Icons.exit_to_app),
+                title: const Text(
+                  "Logout",
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+              Image.asset("assets/HiByeLogo.jpg", width: 1000, height: 200),
+            ],
+          )),
       body: groupList(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -252,13 +257,13 @@ class _HomePageState extends State<HomePage> {
                       setState(() {
                         _isLoading = true;
                       });
-                      // DatabaseService(
-                      //         uid: FirebaseAuth.instance.currentUser!.uid)
-                      //     .createGroup(userName,
-                      //         FirebaseAuth.instance.currentUser!.uid, groupName)
-                      //     .whenComplete(() {
-                      //   _isLoading = false;
-                      // });
+                      DatabaseService(
+                              uid: FirebaseAuth.instance.currentUser!.uid)
+                          .createGroup(userName,
+                              FirebaseAuth.instance.currentUser!.uid, groupName)
+                          .whenComplete(() {
+                        _isLoading = false;
+                      });
                       Navigator.of(context).pop();
                       showSnackbar(
                           context, Colors.green, "Group created successfully.");
@@ -285,7 +290,10 @@ class _HomePageState extends State<HomePage> {
                 itemCount: snapshot.data['groups'].length,
                 itemBuilder: (context, index) {
                   int reverseIndex = snapshot.data['groups'].length - index - 1;
-                  //return GroupBox(); //need to do
+                  return GroupTile(
+                      groupId: getId(snapshot.data['groups'][reverseIndex]),
+                      groupName: getName(snapshot.data['groups'][reverseIndex]),
+                      userName: snapshot.data['fullName']);
                 },
               );
             } else {
