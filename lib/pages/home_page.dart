@@ -252,13 +252,13 @@ class _HomePageState extends State<HomePage> {
                       setState(() {
                         _isLoading = true;
                       });
-                      // DatabaseService(
-                      //         uid: FirebaseAuth.instance.currentUser!.uid)
-                      //     .createGroup(userName,
-                      //         FirebaseAuth.instance.currentUser!.uid, groupName)
-                      //     .whenComplete(() {
-                      //   _isLoading = false;
-                      // });
+                      DatabaseService(
+                              uid: FirebaseAuth.instance.currentUser!.uid)
+                          .createGroup(userName,
+                              FirebaseAuth.instance.currentUser!.uid, groupName)
+                          .whenComplete(() {
+                        _isLoading = false;
+                      });
                       Navigator.of(context).pop();
                       showSnackbar(
                           context, Colors.green, "Group created successfully.");
