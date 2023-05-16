@@ -34,7 +34,6 @@ class DatabaseService {
     return userCollection.doc(uid).snapshots();
   }
 
-//initializing and setting up contacts and conversations
   Future createGroup(String userName, String id, String groupName) async {
     DocumentReference groupDocumentReference = await groupCollection.add({
       "groupName": groupName,
