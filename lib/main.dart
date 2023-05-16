@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:hibye_flutterchatapp/helper/helper_function.dart';
 import 'package:hibye_flutterchatapp/pages/home_page.dart';
 import 'package:hibye_flutterchatapp/pages/auth/login_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
