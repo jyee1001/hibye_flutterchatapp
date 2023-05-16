@@ -6,7 +6,7 @@ import 'package:hibye_flutterchatapp/pages/search_page.dart';
 import '../helper/helper_function.dart';
 import '../service/auth_service.dart';
 import '../service/database_service.dart';
-import '../widgets/group_title.dart';
+import '../widgets/group_tile.dart';
 import '../widgets/widgets.dart';
 import 'about_page.dart';
 import 'auth/login_page.dart';
