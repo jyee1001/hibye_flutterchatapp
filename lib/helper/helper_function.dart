@@ -2,8 +2,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class HelperFunctions {
   static String userLoggedInKey = "LOGGEDINKEY";
-  static String userNameKey = "LOGGEDINKEY";
-  static String userEmailKey = "LOGGEDINKEY";
+  static String userNameKey = "USERNAMEKEY";
+  static String userEmailKey = "USEREMAILKEY";
 
   static Future<bool> saveUserLoggedInStatus(bool isUserLoggedIn) async {
     SharedPreferences sf = await SharedPreferences.getInstance();
