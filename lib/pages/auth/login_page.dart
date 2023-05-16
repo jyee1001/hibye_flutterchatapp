@@ -72,8 +72,8 @@ class _LoginPageState extends State<LoginPage> {
                               prefixIcon:
                                   Icon(Icons.lock, color: Colors.black)),
                           validator: (val) {
-                            if (val!.length < 6) {
-                              return "Password must be at least 6 characters";
+                            if (val!.length < 8) {
+                              return "Password must be at least 8 characters";
                             } else {
                               return null;
                             }

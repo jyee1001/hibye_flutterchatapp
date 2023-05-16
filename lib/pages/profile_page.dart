@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../service/auth_service.dart';
 import '../widgets/widgets.dart';
+import 'about_page.dart';
 import 'auth/login_page.dart';
 import 'home_page.dart';
 
@@ -69,12 +70,25 @@ class _ProfilePageState extends State<ProfilePage> {
           ListTile(
             onTap: () {},
             selected: true,
-            selectedColor: Theme.of(context).primaryColor,
+            selectedColor: Colors.white,
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
             leading: const Icon(Icons.group),
             title: const Text(
               "Profile",
+              style: TextStyle(color: Colors.black),
+            ),
+          ),
+          ListTile(
+            onTap: () {
+              nextScreenReplace(context,
+                  AboutPage(userName: widget.userName, email: widget.email));
+            },
+            contentPadding:
+                const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+            leading: const Icon(Icons.info_outline, color: Colors.black),
+            title: const Text(
+              "About",
               style: TextStyle(color: Colors.black),
             ),
           ),

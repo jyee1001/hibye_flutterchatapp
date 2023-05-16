@@ -8,6 +8,7 @@ import '../service/auth_service.dart';
 import '../service/database_service.dart';
 import '../widgets/group_title.dart';
 import '../widgets/widgets.dart';
+import 'about_page.dart';
 import 'auth/login_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -118,7 +119,7 @@ class _HomePageState extends State<HomePage> {
                   "Groups",
                   style: TextStyle(color: Colors.black),
                 ),
-              ),
+              ), //List Tile For Groups
               ListTile(
                 onTap: () {
                   nextScreenReplace(
@@ -133,6 +134,19 @@ class _HomePageState extends State<HomePage> {
                 leading: const Icon(Icons.group, color: Colors.black),
                 title: const Text(
                   "Profile",
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+              ListTile(
+                onTap: () {
+                  nextScreenReplace(
+                      context, AboutPage(userName: userName, email: email));
+                },
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                leading: const Icon(Icons.info_outline, color: Colors.black),
+                title: const Text(
+                  "About",
                   style: TextStyle(color: Colors.black),
                 ),
               ),
