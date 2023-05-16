@@ -6,6 +6,7 @@ import 'package:hibye_flutterchatapp/pages/search_page.dart';
 import '../helper/helper_function.dart';
 import '../service/auth_service.dart';
 import '../service/database_service.dart';
+import '../widgets/group_title.dart';
 import '../widgets/widgets.dart';
 import 'auth/login_page.dart';
 
@@ -285,7 +286,10 @@ class _HomePageState extends State<HomePage> {
                 itemCount: snapshot.data['groups'].length,
                 itemBuilder: (context, index) {
                   int reverseIndex = snapshot.data['groups'].length - index - 1;
-                  //return GroupBox(); //need to do
+                  return GroupTile(
+                      groupId: getId(snapshot.data['groups'][reverseIndex]),
+                      groupName: getName(snapshot.data['groups'][reverseIndex]),
+                      userName: snapshot.data['fullName']);
                 },
               );
             } else {

@@ -35,7 +35,7 @@ class _GroupTileState extends State<GroupTile> {
         child: ListTile(
           leading: CircleAvatar(
             radius: 30,
-            backgroundColor: Theme.of(context).primaryColor,
+            backgroundColor: Color.fromRGBO(51, 51, 51, 1),
             child: Text(
               widget.groupName.substring(0, 1).toUpperCase(),
               textAlign: TextAlign.center,
@@ -48,8 +48,8 @@ class _GroupTileState extends State<GroupTile> {
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           subtitle: Text(
-            "Join the conversation as ${widget.userName}",
-            style: const TextStyle(fontSize: 13),
+            "Join the group as ${widget.userName}",
+            style: const TextStyle(fontSize: 15),
           ),
         ),
       ),
