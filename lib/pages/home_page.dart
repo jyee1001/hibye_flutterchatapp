@@ -122,9 +122,9 @@ class _HomePageState extends State<HomePage> {
               nextScreenReplace(
                   context,
                   ProfilePage(
-                      //userName: userName,
-                      //email: email,
-                      ));
+                    userName: userName,
+                    email: email,
+                  ));
             },
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -204,16 +204,15 @@ class _HomePageState extends State<HomePage> {
           return StatefulBuilder(builder: ((context, setState) {
             return AlertDialog(
               title: const Text(
-                "Create a group",
-                textAlign: TextAlign.left,
+                "New Group",
+                textAlign: TextAlign.center,
               ),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   _isLoading == true
                       ? Center(
-                          child: CircularProgressIndicator(
-                              color: Theme.of(context).primaryColor),
+                          child: CircularProgressIndicator(color: Colors.grey),
                         )
                       : TextField(
                           onChanged: (val) {
@@ -225,7 +224,7 @@ class _HomePageState extends State<HomePage> {
                           decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                      color: Theme.of(context).primaryColor),
+                                      color: Color.fromRGBO(51, 51, 51, 1)),
                                   borderRadius: BorderRadius.circular(20)),
                               errorBorder: OutlineInputBorder(
                                   borderSide:
@@ -233,7 +232,7 @@ class _HomePageState extends State<HomePage> {
                                   borderRadius: BorderRadius.circular(20)),
                               focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                      color: Theme.of(context).primaryColor),
+                                      color: Color.fromRGBO(51, 51, 51, 1)),
                                   borderRadius: BorderRadius.circular(20))),
                         ),
                 ],
