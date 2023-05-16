@@ -66,9 +66,10 @@ class _HomePageState extends State<HomePage> {
     return StreamBuilder(
         stream: groups,
         builder: (context, AsyncSnapshot snapshot) {
+          //print(snapshot.hasData);
           if (snapshot.hasData) {
-            if (snapshot.data['group'] != null) {
-              if (snapshot.data['group'].length != 0) {
+            if (snapshot.data['groups'] != null) {
+              if (snapshot.data['groups'].length != 0) {
                 return Text("hello");
               } else {
                 return noGroupWidget();
@@ -77,6 +78,7 @@ class _HomePageState extends State<HomePage> {
               return noGroupWidget();
             }
           } else {
+            //return noGroupWidget();
             return Center(
               child: CircularProgressIndicator(color: Colors.grey),
             );
