@@ -33,10 +33,9 @@ class DatabaseService {
   Future getUserGroups() async {
     return userCollection.doc(uid).snapshots();
   }
-}
 
-  //initializing and setting up contacts and conversations
-Future createGroup(String userName, String id, String groupName) async {
+//initializing and setting up contacts and conversations
+  Future createGroup(String userName, String id, String groupName) async {
     DocumentReference groupDocumentReference = await groupCollection.add({
       "groupName": groupName,
       "groupIcon": "",
@@ -59,7 +58,7 @@ Future createGroup(String userName, String id, String groupName) async {
     });
   }
 
-  // getting the chats
+// getting the chats
   getChats(String groupId) async {
     return groupCollection
         .doc(groupId)
@@ -74,17 +73,17 @@ Future createGroup(String userName, String id, String groupName) async {
     return documentSnapshot['admin'];
   }
 
-  // get group members
+// get group members
   getGroupMembers(groupId) async {
     return groupCollection.doc(groupId).snapshots();
   }
 
-  // search
+// search
   searchByName(String groupName) {
     return groupCollection.where("groupName", isEqualTo: groupName).get();
   }
 
-  // function -> bool
+// function -> bool
   Future<bool> isUserJoined(
       String groupName, String groupId, String userName) async {
     DocumentReference userDocumentReference = userCollection.doc(uid);
@@ -98,7 +97,7 @@ Future createGroup(String userName, String id, String groupName) async {
     }
   }
 
-  // toggling the group join/exit
+// toggling the group join/exit
   Future toggleGroupJoin(
       String groupId, String userName, String groupName) async {
     // doc reference
@@ -126,7 +125,7 @@ Future createGroup(String userName, String id, String groupName) async {
     }
   }
 
-  // send message
+// send message
   sendMessage(String groupId, Map<String, dynamic> chatMessageData) async {
     groupCollection.doc(groupId).collection("messages").add(chatMessageData);
     groupCollection.doc(groupId).update({
