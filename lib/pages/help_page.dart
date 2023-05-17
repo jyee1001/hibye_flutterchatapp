@@ -3,34 +3,33 @@ import 'package:hibye_flutterchatapp/pages/profile_page.dart';
 
 import '../service/auth_service.dart';
 import '../widgets/widgets.dart';
+import 'about_page.dart';
 import 'auth/login_page.dart';
-import 'help_page.dart';
 import 'home_page.dart';
 
-class AboutPage extends StatefulWidget {
+class HelpPage extends StatefulWidget {
   String userName;
   String email;
-  AboutPage({Key? key, required this.email, required this.userName})
+  HelpPage({Key? key, required this.email, required this.userName})
       : super(key: key);
 
   @override
-  State<AboutPage> createState() => _AboutPageState();
+  State<HelpPage> createState() => _HelpPageState();
 }
 
-class _AboutPageState extends State<AboutPage> {
+class _HelpPageState extends State<HelpPage> {
   AuthService authService = AuthService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text("About HiBye"),
+          title: Text("Help"),
           backgroundColor: Color.fromRGBO(51, 51, 51, 1),
         ),
         drawer: Drawer(
             backgroundColor: Colors.white,
             child: ListView(
-              //padding: const EdgeInsets.symmetric(vertical: 10),
               children: <Widget>[
                 Icon(
                   Icons.account_circle,
@@ -83,7 +82,12 @@ class _AboutPageState extends State<AboutPage> {
                   ),
                 ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    nextScreenReplace(
+                        context,
+                        AboutPage(
+                            userName: widget.userName, email: widget.email));
+                  },
                   contentPadding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                   leading: const Icon(Icons.info_outline, color: Colors.black),
@@ -93,12 +97,7 @@ class _AboutPageState extends State<AboutPage> {
                   ),
                 ),
                 ListTile(
-                  onTap: () {
-                    nextScreenReplace(
-                        context,
-                        HelpPage(
-                            userName: widget.userName, email: widget.email));
-                  },
+                  onTap: () {},
                   contentPadding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                   leading: const Icon(Icons.help, color: Colors.black),
@@ -163,16 +162,16 @@ class _AboutPageState extends State<AboutPage> {
             SizedBox(height: 15),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Text(
-                  "HiBye is a mobile chat app that was created to keep communities in touch with one another through times where in-person interaction is not an option. ",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 24)),
+              child: Text("Found a bug? Help us by reporting the problem",
+                  textAlign: TextAlign.center, style: TextStyle(fontSize: 24)),
             ),
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Text("Stay in touch and have fun!",
-                  textAlign: TextAlign.center, style: TextStyle(fontSize: 24)),
+              child: Text(
+                  "Developer Contact Info \n 888-888-8888\nhibyeadmin@hibye.com\n\n Thank you!",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 24)),
             ),
           ],
         ));

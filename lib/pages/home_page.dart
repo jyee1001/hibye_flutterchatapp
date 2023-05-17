@@ -10,6 +10,7 @@ import '../widgets/group_tile.dart';
 import '../widgets/widgets.dart';
 import 'about_page.dart';
 import 'auth/login_page.dart';
+import 'help_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -147,6 +148,19 @@ class _HomePageState extends State<HomePage> {
                 leading: const Icon(Icons.info_outline, color: Colors.black),
                 title: const Text(
                   "About",
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+              ListTile(
+                onTap: () {
+                  nextScreenReplace(
+                      context, HelpPage(userName: userName, email: email));
+                },
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                leading: const Icon(Icons.help, color: Colors.black),
+                title: const Text(
+                  "Help",
                   style: TextStyle(color: Colors.black),
                 ),
               ),
