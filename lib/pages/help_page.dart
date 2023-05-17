@@ -162,8 +162,10 @@ class _HelpPageState extends State<HelpPage> {
             SizedBox(height: 15),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Text("Found a bug? Help us by reporting the problem",
-                  textAlign: TextAlign.center, style: TextStyle(fontSize: 24)),
+              child: Text(
+                  "Found a bug? Help us by reporting the problem\n Feedback is appreciated as well!",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 24)),
             ),
             SizedBox(height: 20),
             Padding(
