@@ -51,7 +51,7 @@ class _ChatPageState extends State<ChatPage> {
         centerTitle: true,
         elevation: 0,
         title: Text(widget.groupName),
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Color.fromRGBO(51, 51, 51, 1),
         actions: [
           IconButton(
               onPressed: () {
@@ -76,7 +76,7 @@ class _ChatPageState extends State<ChatPage> {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
               width: MediaQuery.of(context).size.width,
-              color: Colors.grey[700],
+              color: Color.fromRGBO(51, 51, 51, 1),
               child: Row(children: [
                 Expanded(
                     child: TextFormField(
@@ -99,13 +99,13 @@ class _ChatPageState extends State<ChatPage> {
                     height: 50,
                     width: 50,
                     decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColor,
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: const Center(
                         child: Icon(
                       Icons.send,
-                      color: Colors.white,
+                      color: Color.fromRGBO(51, 51, 51, 1),
                     )),
                   ),
                 )

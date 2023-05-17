@@ -62,8 +62,8 @@ class _GroupInfoState extends State<GroupInfo> {
                     builder: (context) {
                       return AlertDialog(
                         title: const Text("Exit"),
-                        content:
-                            const Text("Are you sure you exit the group? "),
+                        content: const Text(
+                            "Are you sure you want to leave the group? "),
                         actions: [
                           IconButton(
                             onPressed: () {
@@ -107,7 +107,7 @@ class _GroupInfoState extends State<GroupInfo> {
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  color: Color.fromRGBO(51, 51, 51, 1)),
+                  color: Color.fromRGBO(226, 222, 208, 1)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -128,12 +128,13 @@ class _GroupInfoState extends State<GroupInfo> {
                     children: [
                       Text(
                         "Group: ${widget.groupName}",
-                        style: const TextStyle(fontWeight: FontWeight.w500),
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(
                         height: 5,
                       ),
-                      Text("Admin: ${getName(widget.adminName)}")
+                      Text("Admin: ${getName(widget.adminName)}",
+                          style: TextStyle(fontWeight: FontWeight.bold))
                     ],
                   )
                 ],
@@ -163,7 +164,7 @@ class _GroupInfoState extends State<GroupInfo> {
                     child: ListTile(
                       leading: CircleAvatar(
                         radius: 30,
-                        backgroundColor: Theme.of(context).primaryColor,
+                        backgroundColor: Color.fromRGBO(51, 51, 51, 1),
                         child: Text(
                           getName(snapshot.data['members'][index])
                               .substring(0, 1)
@@ -193,7 +194,7 @@ class _GroupInfoState extends State<GroupInfo> {
         } else {
           return Center(
               child: CircularProgressIndicator(
-            color: Theme.of(context).primaryColor,
+            color: Color.fromRGBO(51, 51, 51, 1),
           ));
         }
       },
