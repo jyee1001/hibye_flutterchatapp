@@ -25,3 +25,11 @@ Configure the Android emulator: Set up an Android emulator within Android Studio
 Build and run the app: In Android Studio, open the main Dart file of your Flutter project. The file is called main.dart.  Make sure that your connected Android device or emulator is selected as the target device.
 Click on the green play button: In the Android Studio toolbar, you will find a green play button. Click on it to start building and running the Flutter app on the emulator.
 Use the application: The application should be loaded and ready to use.
+
+References:
+Help, guidance, and inspiration were gathered from the following links:
+https://docs.flutter.dev/
+https://dart.dev/guides
+https://www.youtube.com/watch?v=Qwk5oIAkgnY&t=5104s&ab_channel=BackslashFlutter
+https://www.youtube.com/watch?v=F2xtrS3xSLo&t=1761s
+
