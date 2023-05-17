@@ -158,7 +158,7 @@ class _SearchPageState extends State<SearchPage> {
       contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       leading: CircleAvatar(
         radius: 30,
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Color.fromRGBO(51, 51, 51, 1),
         child: Text(
           groupName.substring(0, 1).toUpperCase(),
           style: const TextStyle(color: Colors.white),
